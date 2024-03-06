@@ -1,0 +1,16 @@
+{
+  "name": "tasks-in-parallel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server",
+  "scripts": {
+    "start": "nodemon ./server/index.js",
+    "test": "artillery run artillery.yaml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
