@@ -1,0 +1,23 @@
+{
+  "name": "node-deepening",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "clean": "pnpm rimraf */node_modules ./node_modules",
+    "setup": "pnpm install && pnpm recursive install"
+  },
+  "keywords": [
+    "node",
+    "deepening",
+    "exploration"
+  ],
+  "author": "Laureline Paris",
+  "license": "ISC",
+  "devDependencies": {
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "recursive": "^0.0.2"
+  }
+}

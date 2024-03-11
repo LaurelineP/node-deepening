@@ -1,0 +1,50 @@
+config:
+  target: http://localhost:8080
+  phases:
+    - duration: 60
+      arrivalRate: 1
+      rampTo: 5
+      name: Warm up phase
+    - duration: 60
+      arrivalRate: 5
+      rampTo: 10
+      name: Ramp up load
+    - duration: 30
+      arrivalRate: 10
+      rampTo: 30
+      name: Spike phase
+    - http.response_time.p95: 75
+
+scenarios:
+  - flow:
+      - loop:
+        - get:
+            url: "/"
+        - get:
+            url: "/blocking"
+        - get:
+            url: "/"
+        count: 5
+
+  - flow:
+      - loop:
+        - get:
+            url: "/"
+        - get:
+            url: "/non-blocking-worker"
+        - get:
+            url: "/"
+        - get:
+            url: "/"
+        - get:
+            url: "/"
+        count: 5
+
+  - flow:
+      - loop:
+        - get:
+            url: "/non-blocking-worker"
+        - get:
+            url: "/"
+
+        count: 5
